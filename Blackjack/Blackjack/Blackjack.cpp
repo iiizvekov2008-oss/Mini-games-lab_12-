@@ -2,19 +2,23 @@
 #include <ctime>
 #include <iomanip>
 #include "Header.h"
-using namespace std;
 
 int putCard();
 bool doCheck(int used_card[53], int card, int quantity);
 int countPoints(int point_card, int points);
 void defineWinner(int user_points, int dealer_card);
 
+using namespace std;
+
 int main()
 {
     setlocale(LC_CTYPE, "Russian");
     srand((unsigned)time(NULL));
     bool condition = true;
-    while (condition) {
+    int action_counter = 0;
+    while (condition) 
+    {
+        bool cin_fail1 = false, cin_fail2 = false;
         int action = 0, y = 0, card = 0, quantity = 0, user_points = 0, point_card = 0, dealer_card = 0, dealer = 0, user = 0, dealer_points = 0;
         int used_cards[53]{};
         int user_cards[53]{};
@@ -48,11 +52,29 @@ int main()
             //туз
             {1, 14, 11}, {2, 14, 11}, {3, 14, 11}, {4, 14, 11},
         };
-        cout << "\t Рады приветсвовать вас за игровым столом Blackjack! \n";
-        cout << setw(80) << setfill('-') << "" << endl;
-        cout << "Нажмите Enter для начала игры";
-        cin.get();
-        cout << "\033[A\33[2K";
+        cout << "\t\t\t\t Рады приветсвовать вас за игровым столом Blackjack! \n";
+        cout << setw(119) << setfill('-') << "" << endl;
+        if (action_counter == 0)
+        {
+            cout << "Правила игры:\n";
+            cout << " => Цель игры — собрать карты с суммой очков как можно ближе к 21, но не больше.\n";
+            cout << " => Туз может быть 1 или 11, картинки (валет, дама, король) — это 10, остальные карты считаются по числу.\n";
+            cout << " => Ты играешь только против дилера: если у тебя перебор (свыше 21), ты сразу проигрываешь.\n";
+            cout << " => Победа — когда твоя сумма ближе к 21, чем у дилера, и при этом не выше 21.\n";
+            cout << setw(119) << setfill('-') << "" << endl;
+            cout << "С болеее подробными правилами можете ознакомиться на интернет-ресурсе:\nhttps://www.shambalacasino.ru/blog/pravila-igri-v-blekdjek \n";
+            cout << setw(119) << setfill('-') << "" << endl;
+            cout << "Нажмите Enter для начала игры";
+            cin.get();
+            for (int i = 0; i < 10; i++)
+                cout << "\033[A\33[2K";
+        }
+        else
+        {
+            cout << "Нажмите Enter для начала игры";
+            cin.get();
+            cout << "\033[A\33[2K";
+        }
         for (int i = 0; i < 2; i++)
         {
             do
@@ -86,15 +108,32 @@ int main()
             outputCard(deck, user_cards[i]);
         cout << endl;
         cout << "Ваши очки: " << user_points << endl;
-        cout << setw(80) << setfill('-') << "" << endl;
+        cout << setw(119) << setfill('-') << "" << endl;
         puts("Выберите действия:");
         puts("1 - взять карту");
         puts("2 - остановить набор");
-        cout << setw(80) << setfill('-') << "" << endl;
+        cout << setw(119) << setfill('-') << "" << endl;
         do
         {
             cin >> action;
-            cout << "\033[A\33[2K";
+            if (cin_fail1 == true)
+            {
+                for (int i = 0; i < 2; i++)
+                    cout << "\033[A\33[2K";
+            }
+            if (cin.fail()) 
+            { 
+                cout << "\033[A\33[2K";
+                cin_fail1 = true;
+                cout << "Ошибка ввода! Попробуйте еще раз." << std::endl;
+                cin.clear(); 
+                cin.ignore(10000, '\n'); 
+            }
+            else
+            {
+                cin_fail1 = false;
+                cout << "\033[A\33[2K";
+            }
             switch (action)
             {
             case 1:
@@ -110,9 +149,8 @@ int main()
                 user++;
                 if (user > 3)
                 {
-                    cout << "\033[A\33[2K";
-                    cout << "\033[A\33[2K";
-                    cout << "\033[A\33[2K";
+                    for (int i = 0; i < 3; i++)
+                        cout << "\033[A\33[2K";
                 }
                 cout << "Ваши карты: \n";
                 for (int i = 0; i <= user - 1; i++)
@@ -147,9 +185,8 @@ int main()
                 }
                 if (user >= 3)
                 {
-                    cout << "\033[A\33[2K";
-                    cout << "\033[A\33[2K";
-                    cout << "\033[A\33[2K";
+                    for (int i = 0; i < 3; i++)
+                        cout << "\033[A\33[2K";
                 }
                 cout << "Ваши карты: \n";
                 for (int i = 0; i <= user - 1; i++)
@@ -170,7 +207,7 @@ int main()
             }
             }
         } while (y == 0);
-        cout << setw(80) << setfill('-') << "" << endl;
+        cout << setw(119) << setfill('-') << "" << endl;
         int c = 0;
         bool g = false;
         cout << "Для новой игры нажмите 1, для выхода - 2\n";
@@ -179,6 +216,21 @@ int main()
         {
             while (g == false)
             {
+                if (cin_fail2 == true)
+                        cout << "\033[A\33[2K";
+                if (cin.fail())
+                {
+                    cout << "\033[A\33[2K";
+                    cin_fail2 = true;
+                    cout << "Ошибка ввода! Попробуйте еще раз.";
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+                else
+                {
+                    cin_fail2 = false;
+                    cout << "\033[A\33[2K";
+                }
                 cout << "\nНеверная команда, попробуйте ещё раз: ";
                 cin >> c;
                 if (c == 1 || c == 2) g = true;
@@ -198,6 +250,7 @@ int main()
             break;
         }
         }
+        action_counter++;
     }
 }
 
