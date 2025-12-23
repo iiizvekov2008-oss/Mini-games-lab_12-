@@ -5,9 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7806DAC2-8888-41F5-89C0-CAA28C1A0D8A}|gonki.vcxproj|C:\\Users\\User\\Desktop\\\u041E\u041F\u0418\\\u043F\u0440\u043E\u0435\u043A\u0442\\gonki\\gonki.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7806DAC2-8888-41F5-89C0-CAA28C1A0D8A}|gonki.vcxproj|solutionrelative:gonki.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{019E84BC-2B67-4DC4-9FC4-BE1A164C8276}|..\\ConsoleApplication2\\ConsoleApplication2.vcxproj|C:\\Users\\User\\Desktop\\\u041E\u041F\u0418\\\u043F\u0440\u043E\u0435\u043A\u0442\\ConsoleApplication2\\ConsoleApplication2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,30 +14,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConsoleApplication2.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u041E\u041F\u0418\\\u043F\u0440\u043E\u0435\u043A\u0442\\ConsoleApplication2\\ConsoleApplication2.cpp",
-              "RelativeDocumentMoniker": "..\\ConsoleApplication2\\ConsoleApplication2.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\\u041E\u041F\u0418\\\u043F\u0440\u043E\u0435\u043A\u0442\\ConsoleApplication2\\ConsoleApplication2.cpp",
-              "RelativeToolTip": "..\\ConsoleApplication2\\ConsoleApplication2.cpp",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAAAFoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-23T11:54:12.378Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "gonki.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u041E\u041F\u0418\\\u043F\u0440\u043E\u0435\u043A\u0442\\gonki\\gonki.cpp",
               "RelativeDocumentMoniker": "gonki.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\\u041E\u041F\u0418\\\u043F\u0440\u043E\u0435\u043A\u0442\\gonki\\gonki.cpp",
-              "RelativeToolTip": "gonki.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAADwvzIAAAAZAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u041E\u041F\u0418\\\u043F\u0440\u043E\u0435\u043A\u0442\\gonki\\gonki.cpp*",
+              "RelativeToolTip": "gonki.cpp*",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAuwHMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-12-16T07:07:28.981Z",
               "EditorCaption": ""
