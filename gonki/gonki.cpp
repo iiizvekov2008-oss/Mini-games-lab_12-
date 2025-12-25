@@ -43,8 +43,8 @@ int main() {
                         if (i == H - 1 && j == driver) {
                             cout << "H";
                         }
-                        else if (difficulty[i] == j) {
-                            cout << "#";
+                        else if (difficulty[i] != -1 && j >= difficulty[i] && j < difficulty[i] + 3) {
+                            cout << "#"; 
                         }
                         else {
                             cout << " ";
@@ -66,16 +66,17 @@ int main() {
 
                 //ЛОГИКА
                 for (int j = H - 1; j > 0; j--) {
-                    difficulty[j] = difficulty[j - 1];
-                }
+                    difficulty[j] = difficulty[j - 1]; 
+                } 
                 if (rand() % 4 == 0) {
-                    difficulty[0] = rand() % L;
+                    int pos = rand() % (L - 2); 
+                    difficulty[0] = pos;
                 }
-                else {
-                    difficulty[0] = -1;
+                else { 
+                    difficulty[0] = -1; 
                 }
 
-                if (difficulty[H - 1] == driver) {
+                if (difficulty[H - 1] != -1 && driver >= difficulty[H - 1] && driver < difficulty[H - 1] + 3) {
                     system("cls");
                     cout << "Ты врезался! Игра окончена :(" << endl;
                     cout << "Твой счёт: " << score << endl;
